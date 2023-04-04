@@ -1,0 +1,75 @@
+body {
+    background: darkslateblue;
+    margin: 0 auto;
+}
+
+.button {       
+    position: absolute;     
+    display: flex;   
+    font-size: 50px;    
+    font-weight: 900;
+    border-radius: 200px;      
+    padding: 10px;   
+    opacity: 70%;
+    background: whitesmoke;
+    color: purple;
+    border: 5px solid darkslateblue;
+    font-style: italic;
+    transition: .5s ease;    
+}
+
+
+.button:hover {
+    border: 5px solid purple;
+    color: darkslateblue;
+}
+
+@media screen and (max-width: 500px) {
+
+    .button {
+        font-size:20px;
+        transition: .5s ease;
+    }
+}
+
+
+.main {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    grid-template-columns: 1fr 1fr;
+}
+
+.left, .right{ 
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;    
+}
+
+
+.right-img{
+    opacity:20%;
+    height: 100vh;
+    width: 100%;
+    background-position: center;
+    background-size: cover;
+    background: url(/assets/img/right.png) no-repeat fixed;
+    transition: .4s ease;
+    
+}
+
+.left-img{
+    opacity: 10%;
+    height: 100vh;
+    width: 100%;
+    background-position: center;
+    background-size: cover;
+    background: url(/assets/img/left.png) no-repeat fixed;
+    transition: .4s ease;
+}
+
+.right:hover .right-img, .left:hover .left-img{
+  opacity: 100%;
+}
