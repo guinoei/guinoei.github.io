@@ -225,7 +225,8 @@ header {
 
 .spray,
 .penta,
-.heart {
+.heart,
+.pixel {
     width: 1000px;
     padding: 10px;
     display: flex;
@@ -283,10 +284,41 @@ header {
 }
 
 .balloon {
-
     height: 500px;
     width: 500px;
     background-image: url(/assets/img/balloon.gif);
+    background-position: center;
+    background-size: cover;
+}
+
+.pixel {
+    height: 900px;
+    gap: 30px;
+}
+
+.normal-pic{
+    height: 337px;
+    width: 600px;
+    border-radius: 20px;
+    background-image: url(/assets/img/normal-pic.jpg);
+    background-position: center;
+    background-size: cover;
+}
+
+.pixel-pic{
+    height: 337px;
+    width: 600px;
+    border-radius: 20px;
+    background-image: url(/assets/img/pixel-pic.jpg);
+    background-position: center;
+    background-size: cover;
+}
+
+.pixel-gif{
+    height: 200px;
+    width: 355px;
+    border-radius: 10px;
+    background-image: url(/assets/img/pixel.gif);
     background-position: center;
     background-size: cover;
 }
