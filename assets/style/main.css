@@ -286,9 +286,10 @@ header {
 .balloon {
     height: 500px;
     width: 500px;
-    background-image: url(/assets/img/balloon.gif);
+    background-image: url(/assets/img/heart.png);
     background-position: center;
     background-size: cover;
+    animation: penta 1s infinite ease alternate;
 }
 
 .pixel {
@@ -321,6 +322,30 @@ header {
     background-image: url(/assets/img/pixel.gif);
     background-position: center;
     background-size: cover;
+}
+
+.templates{
+    margin-top: 50px;
+    width: 100%;
+    height: 200px;   
+    display: flex;
+    align-items: center;
+    justify-content: center;    
+}
+
+.templates a{
+    text-decoration: none;
+    transition: .2s ease;
+    font-size: 100px;
+    opacity: 80%;
+    -webkit-text-stroke: 2px darkslateblue;
+}
+
+.templates a:hover{
+    transform: scale(1.1);
+    transition: .2s ease;
+    text-decoration: underline; 
+    opacity: 100%;
 }
 
 .fa-play,
@@ -813,13 +838,17 @@ footer {
 
     .spray,
     .penta,
-    .heart{
+    .heart,
+    .pixel{
         width: 100%;
     }
 
     .spray-pic, 
     .penta-pic,
-    .balloon{
+    .balloon,
+    .normal-pic,
+    .pixel-pic,
+    .pixel-gif{
         width: 100%;
         background-size:contain;
     }
@@ -835,5 +864,9 @@ footer {
     .penta-logo{
         height: 300px;
         width: 300px;
+    }
+
+    .templates a{
+        font-size: 60px;
     }
 }
