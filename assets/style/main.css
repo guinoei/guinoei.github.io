@@ -843,9 +843,7 @@ footer {
         width: 100%;
     }
 
-    .spray-pic, 
-    .penta-pic,
-    .balloon,
+    .spray-pic,    
     .normal-pic,
     .pixel-pic,
     .pixel-gif{
@@ -853,17 +851,33 @@ footer {
         background-size:contain;
     }
 
+    .spray,
     .spray-pic{
-        height: 420px;
+        height: 400px;
+    }
+
+    .penta,
+    .penta-pic{        
+        height: 200px;
     }
 
     .penta-pic{
-        height: 600px;
+        width: 200px;
     }
 
     .penta-logo{
+        height: 250px;
+        width: 250px;
+        margin-bottom: 50px;
+    }   
+
+    .balloon{
+        width: 250px;
+    }
+
+    .heart,
+    .balloon{       
         height: 300px;
-        width: 300px;
     }
 
     .templates a{
