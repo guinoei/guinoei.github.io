@@ -158,6 +158,9 @@ header {
     position: relative;
     transition: .1s ease;
     animation: font 1.5s infinite ease alternate;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 .description::after {
