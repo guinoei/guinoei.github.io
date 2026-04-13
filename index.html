@@ -1,0 +1,541 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Guilherme Schilling</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;900&family=Raleway:wght@300;400;500&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <!-- Particle canvas -->
+        <canvas id="particles"></canvas>
+
+        <!-- Background layers -->
+        <div class="bg-scene">
+            <div class="bg-sky"></div>
+            <div class="bg-mountains bg-mountains--far"></div>
+            <div class="bg-mountains bg-mountains--mid"></div>
+            <div class="bg-mountains bg-mountains--near"></div>
+            <div class="bg-fog"></div>
+            <div class="bg-vignette"></div>
+        </div>
+
+        <!-- Main landing content -->
+        <main class="landing">
+            <div class="landing__content">
+                <p class="landing__eyebrow" data-i18n="landing.eyebrow">— Portfolio —</p>
+                <h1 class="landing__title">Guilherme<br />Schilling</h1>
+                <p class="landing__sub">guinoei.com</p>
+
+                <div class="landing__buttons">
+                    <button class="landing-btn landing-btn--primary" id="startBtn" aria-label="Start">
+                        <span class="landing-btn__label" data-i18n="btn.start">Start</span>
+                        <span class="landing-btn__icon" aria-hidden="true">›</span>
+                    </button>
+                    <button class="landing-btn landing-btn--secondary" id="settingsBtn" aria-label="Settings">
+                        <span class="landing-btn__label" data-i18n="btn.settings">Settings</span>
+                        <span class="landing-btn__icon" aria-hidden="true">⚙</span>
+                    </button>
+                </div>
+            </div>
+        </main>
+
+        <!-- =====================================================
+       MAIN MODAL
+       ===================================================== -->
+        <div
+            id="modal"
+            class="modal"
+            role="dialog"
+            aria-modal="true"
+            aria-hidden="true"
+        >
+            <div class="modal__backdrop" id="modalBackdrop"></div>
+
+            <div class="modal__window">
+                <!-- Corner ornaments -->
+                <span class="modal__corner modal__corner--tl"></span>
+                <span class="modal__corner modal__corner--tr"></span>
+                <span class="modal__corner modal__corner--bl"></span>
+                <span class="modal__corner modal__corner--br"></span>
+
+                <!-- Header / Tab navigation -->
+                <header class="modal__header">
+                    <nav class="modal__tabs" role="tablist">
+                        <button
+                            class="tab-btn active"
+                            data-tab="profile"
+                            role="tab"
+                            aria-selected="true"
+                            data-i18n="tab.profile"
+                        >
+                            Profile
+                        </button>
+                        <button
+                            class="tab-btn"
+                            data-tab="projects"
+                            role="tab"
+                            aria-selected="false"
+                            data-i18n="tab.projects"
+                        >
+                            Projects
+                        </button>
+                        <button
+                            class="tab-btn"
+                            data-tab="creative"
+                            role="tab"
+                            aria-selected="false"
+                            data-i18n="tab.creative"
+                        >
+                            Creative
+                        </button>
+                        <button
+                            class="tab-btn"
+                            data-tab="skills"
+                            role="tab"
+                            aria-selected="false"
+                            data-i18n="tab.skills"
+                        >
+                            Skills
+                        </button>
+                        <button
+                            class="tab-btn"
+                            data-tab="contact"
+                            role="tab"
+                            aria-selected="false"
+                            data-i18n="tab.contact"
+                        >
+                            Contact
+                        </button>
+                    </nav>
+                    <button
+                        class="modal__close"
+                        id="modalClose"
+                        aria-label="Close"
+                    >
+                        ✕
+                    </button>
+                </header>
+
+                <div class="modal__divider"></div>
+
+                <!-- Tab panels -->
+                <div class="modal__body">
+                    <!-- ── PROFILE ─────────────────────────────────── -->
+                    <section
+                        class="tab-panel active"
+                        id="tab-profile"
+                        role="tabpanel"
+                    >
+                        <div class="profile">
+                            <div class="profile__card">
+                                <div class="profile__avatar">GS</div>
+                                <div class="profile__info">
+                                    <p class="profile__label" data-i18n="profile.label">Character</p>
+                                    <h2 class="profile__name">
+                                        Guilherme Schilling
+                                    </h2>
+                                    <p class="profile__class" data-i18n="profile.class">
+                                        Software Engineer · Creative Operator
+                                    </p>
+                                    <div class="profile__xp">
+                                        <span class="profile__xp-label" data-i18n="profile.xp.label">EXP</span>
+                                        <div class="profile__xp-bar">
+                                            <div class="profile__xp-fill"></div>
+                                        </div>
+                                        <span class="profile__xp-value" data-i18n="profile.xp.value">Lv. 26</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="profile__bio">
+                                <p class="profile__bio-label" data-i18n="profile.bio.label">// profile.txt</p>
+                                <p class="profile__bio-text" data-i18n="profile.bio.text">
+                                    Hello there! I'm Guilherme Schilling,
+                                    Software Engineering student and
+                                    professional with 2+ years of experience
+                                    across both web development and digital
+                                    content production. Building web
+                                    applications using modern technologies like
+                                    React, TypeScript, and Node.js, alongside
+                                    hands-on experience managing digital assets,
+                                    video editing, and branding.
+                                </p>
+                            </div>
+
+                            <div class="profile__stats">
+                                <div class="stat-item">
+                                    <span class="stat-item__value">2+</span>
+                                    <span class="stat-item__label" data-i18n="profile.stat.years">Years Exp</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-item__value">5+</span>
+                                    <span class="stat-item__label" data-i18n="profile.stat.projects">Projects</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-item__value">3</span>
+                                    <span class="stat-item__label" data-i18n="profile.stat.languages">Languages</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-item__value">∞</span>
+                                    <span class="stat-item__label" data-i18n="profile.stat.curiosity">Curiosity</span>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- ── PROJECTS ────────────────────────────────── -->
+                    <section
+                        class="tab-panel"
+                        id="tab-projects"
+                        role="tabpanel"
+                    >
+                        <div class="quest-log">
+                            <div class="quest-log__sidebar">
+                                <p class="quest-log__heading" data-i18n="projects.heading">Project Log</p>
+                                <ul class="quest-list" id="questList"></ul>
+                            </div>
+                            <div class="quest-log__detail" id="questDetail">
+                                <p class="quest-detail__placeholder" data-i18n="projects.placeholder">
+                                    Select a project to view details
+                                </p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- ── CREATIVE ────────────────────────────────── -->
+                    <section
+                        class="tab-panel"
+                        id="tab-creative"
+                        role="tabpanel"
+                    >
+                        <div class="commissions">
+                            <p class="commissions__heading" data-i18n="creative.heading">
+                                — Commission Log —
+                            </p>
+                            <div class="commissions__grid">
+                                <!-- Card 1: Social & Promotional Video -->
+                                <div class="commission-card">
+                                    <div class="commission-card__image">
+                                        <img
+                                            src="https://images.unsplash.com/photo-1545868260-9d9d24fc6669?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                                            alt="Social and promotional video editing"
+                                            loading="lazy"
+                                        />
+                                        <span class="commission-card__type" data-i18n="creative.card1.type">Video Editing</span>
+                                    </div>
+                                    <div class="commission-card__body">
+                                        <h3 class="commission-card__title" data-i18n="creative.card1.title">
+                                            Social &amp; Promotional
+                                        </h3>
+                                        <ul class="commission-card__list">
+                                            <li data-i18n="creative.card1.item1">Short-form social media content</li>
+                                            <li data-i18n="creative.card1.item2">Promotional and product videos</li>
+                                            <li data-i18n="creative.card1.item3">Beat-synced cuts and music-driven pacing</li>
+                                            <li data-i18n="creative.card1.item4">Engaging hooks and retention edits</li>
+                                        </ul>
+                                        <div class="commission-card__tools">
+                                            <span class="commission-tool">CapCut</span>
+                                            <span class="commission-tool">Premiere Pro</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Card 2: Content & Storytelling Video -->
+                                <div class="commission-card">
+                                    <div class="commission-card__image">
+                                        <img
+                                            src="https://images.unsplash.com/photo-1478737270239-2f02b77fc618?w=600&h=260&fit=crop&q=80"
+                                            alt="Content and storytelling video editing"
+                                            loading="lazy"
+                                        />
+                                        <span class="commission-card__type" data-i18n="creative.card2.type">Video Editing</span>
+                                    </div>
+                                    <div class="commission-card__body">
+                                        <h3 class="commission-card__title" data-i18n="creative.card2.title">
+                                            Content &amp; Storytelling
+                                        </h3>
+                                        <ul class="commission-card__list">
+                                            <li data-i18n="creative.card2.item1">Talking-head and interview-style videos</li>
+                                            <li data-i18n="creative.card2.item2">Marketing-focused captions and subtitles</li>
+                                            <li data-i18n="creative.card2.item3">Narrative pacing and story direction</li>
+                                            <li data-i18n="creative.card2.item4">Dynamic cuts and voice enhancement</li>
+                                        </ul>
+                                        <div class="commission-card__tools">
+                                            <span class="commission-tool">CapCut</span>
+                                            <span class="commission-tool">Premiere Pro</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Card 3: Image & Branding -->
+                                <div class="commission-card">
+                                    <div class="commission-card__image">
+                                        <img
+                                            src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=600&h=260&fit=crop&q=80"
+                                            alt="Image enhancement and branding"
+                                            loading="lazy"
+                                        />
+                                        <span class="commission-card__type" data-i18n="creative.card3.type">Image &amp; Branding</span>
+                                    </div>
+                                    <div class="commission-card__body">
+                                        <h3 class="commission-card__title" data-i18n="creative.card3.title">
+                                            Image &amp; Branding
+                                        </h3>
+                                        <ul class="commission-card__list">
+                                            <li data-i18n="creative.card3.item1">Image enhancement and color correction</li>
+                                            <li data-i18n="creative.card3.item2">Property photos with logo watermarking</li>
+                                            <li data-i18n="creative.card3.item3">Basic typography and visual identity</li>
+                                            <li data-i18n="creative.card3.item4">Brand asset creation and management</li>
+                                        </ul>
+                                        <div class="commission-card__tools">
+                                            <span class="commission-tool">Photoshop</span>
+                                            <span class="commission-tool">Illustrator</span>
+                                            <span class="commission-tool">Affinity</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Card 4: Google Workspace & Ops -->
+                                <div class="commission-card">
+                                    <div class="commission-card__image">
+                                        <img
+                                            src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?q=80&w=1176&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                                            alt="Google Workspace and operations"
+                                            loading="lazy"
+                                        />
+                                        <span class="commission-card__type" data-i18n="creative.card4.type">Workspace &amp; Ops</span>
+                                    </div>
+                                    <div class="commission-card__body">
+                                        <h3 class="commission-card__title" data-i18n="creative.card4.title">
+                                            Google Workspace &amp; Ops
+                                        </h3>
+                                        <ul class="commission-card__list">
+                                            <li data-i18n="creative.card4.item1">Google Workspace setup and file management</li>
+                                            <li data-i18n="creative.card4.item2">Spreadsheet structuring and automation</li>
+                                            <li data-i18n="creative.card4.item3">Data organization and workflow design</li>
+                                            <li class="commission-card__list-item--accent" data-i18n="creative.card4.item4">
+                                                Sheets/Excel as a lightweight site database
+                                            </li>
+                                        </ul>
+                                        <div class="commission-card__tools">
+                                            <span class="commission-tool">Google Workspace</span>
+                                            <span class="commission-tool">Excel</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- ── SKILLS ─────────────────────────────────── -->
+                    <section class="tab-panel" id="tab-skills" role="tabpanel">
+                        <div class="skills">
+                            <div class="skills__panel">
+                                <p class="skills__heading" data-i18n="skills.dev.heading">Development</p>
+                                <div class="skills__group">
+                                    <p class="skills__group-label" data-i18n="skills.dev.frontend">Frontend</p>
+                                    <div class="skills__tags">
+                                        <span class="skill-tag">React</span>
+                                        <span class="skill-tag">TypeScript</span>
+                                        <span class="skill-tag">JavaScript</span>
+                                        <span class="skill-tag">Tailwind CSS</span>
+                                    </div>
+                                </div>
+                                <div class="skills__group">
+                                    <p class="skills__group-label" data-i18n="skills.dev.backend">Backend</p>
+                                    <div class="skills__tags">
+                                        <span class="skill-tag">Node.js</span>
+                                        <span class="skill-tag">Django</span>
+                                        <span class="skill-tag">Python</span>
+                                    </div>
+                                </div>
+                                <div class="skills__group">
+                                    <p class="skills__group-label" data-i18n="skills.dev.databases">Databases</p>
+                                    <div class="skills__tags">
+                                        <span class="skill-tag">MySQL</span>
+                                        <span class="skill-tag">PostgreSQL</span>
+                                    </div>
+                                </div>
+                                <div class="skills__group">
+                                    <p class="skills__group-label" data-i18n="skills.dev.cloud">Cloud &amp; Tools</p>
+                                    <div class="skills__tags">
+                                        <span class="skill-tag">AWS S3</span>
+                                        <span class="skill-tag">Git</span>
+                                    </div>
+                                </div>
+                                <div class="skills__group">
+                                    <p class="skills__group-label" data-i18n="skills.dev.arch">Architecture</p>
+                                    <div class="skills__tags">
+                                        <span class="skill-tag">MVC</span>
+                                        <span class="skill-tag">REST APIs</span>
+                                        <span class="skill-tag">i18n</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="skills__divider"></div>
+
+                            <div class="skills__panel">
+                                <p class="skills__heading" data-i18n="skills.creative.heading">Creative</p>
+                                <div class="skills__tags skills__tags--loose">
+                                    <span class="skill-tag skill-tag--creative" data-i18n="skills.creative.multimedia">Multimedia Editing</span>
+                                    <span class="skill-tag skill-tag--creative" data-i18n="skills.creative.audio">Audio Enhancement</span>
+                                    <span class="skill-tag skill-tag--creative" data-i18n="skills.creative.captioning">Captioning</span>
+                                    <span class="skill-tag skill-tag--creative" data-i18n="skills.creative.visual">Visual Design</span>
+                                    <span class="skill-tag skill-tag--creative" data-i18n="skills.creative.branding">Branding</span>
+                                    <span class="skill-tag skill-tag--creative" data-i18n="skills.creative.dam">Digital Asset Management</span>
+                                    <span class="skill-tag skill-tag--creative" data-i18n="skills.creative.data">Data Structuring</span>
+                                    <span class="skill-tag skill-tag--creative" data-i18n="skills.creative.web">Web Development</span>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- ── CONTACT ────────────────────────────────── -->
+                    <section class="tab-panel" id="tab-contact" role="tabpanel">
+                        <div class="contact">
+                            <p class="contact__eyebrow" data-i18n="contact.eyebrow">— Save &amp; Quit —</p>
+                            <h2 class="contact__title" data-i18n="contact.title">Let's Connect</h2>
+                            <p class="contact__sub" data-i18n="contact.sub">
+                                Session progress saved. Ready to quit when you are.
+                            </p>
+                            <div class="contact__links">
+                                <a
+                                    class="contact__link"
+                                    href="https://github.com/guinoei"
+                                    target="_blank"
+                                    rel="noopener"
+                                >
+                                    <span class="contact__link-icon">
+                                        <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20" aria-hidden="true">
+                                            <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
+                                        </svg>
+                                    </span>
+                                    <span>github.com/guinoei</span>
+                                </a>
+
+                                <a
+                                    class="contact__link"
+                                    href="https://linkedin.com/in/guinoei"
+                                    target="_blank"
+                                    rel="noopener"
+                                >
+                                    <span class="contact__link-icon">
+                                        <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20" aria-hidden="true">
+                                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                                        </svg>
+                                    </span>
+                                    <span>linkedin.com/in/guinoei</span>
+                                </a>
+
+                                <a
+                                    class="contact__link"
+                                    href="https://youtube.com/@guinoei"
+                                    target="_blank"
+                                    rel="noopener"
+                                >
+                                    <span class="contact__link-icon">
+                                        <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20" aria-hidden="true">
+                                            <path d="M23.495 6.205a3.007 3.007 0 0 0-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 0 0 .527 6.205a31.247 31.247 0 0 0-.522 5.805 31.247 31.247 0 0 0 .522 5.783 3.007 3.007 0 0 0 2.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 0 0 2.088-2.088 31.247 31.247 0 0 0 .5-5.783 31.247 31.247 0 0 0-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/>
+                                        </svg>
+                                    </span>
+                                    <span>youtube.com/@guinoei</span>
+                                </a>
+
+                                <a
+                                    class="contact__link"
+                                    href="mailto:dev@guinoei.com"
+                                >
+                                    <span class="contact__link-icon">
+                                        <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20" aria-hidden="true">
+                                            <path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.910 1.528-1.145C21.69 2.28 24 3.434 24 5.457z"/>
+                                        </svg>
+                                    </span>
+                                    <span>dev@guinoei.com</span>
+                                </a>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                <!-- /.modal__body -->
+            </div>
+            <!-- /.modal__window -->
+        </div>
+        <!-- /#modal -->
+
+        <!-- =====================================================
+       SETTINGS MODAL
+       ===================================================== -->
+        <div
+            id="settingsModal"
+            class="modal"
+            role="dialog"
+            aria-modal="true"
+            aria-hidden="true"
+        >
+            <div class="modal__backdrop" id="settingsModalBackdrop"></div>
+
+            <div class="modal__window modal__window--sm">
+                <!-- Corner ornaments -->
+                <span class="modal__corner modal__corner--tl"></span>
+                <span class="modal__corner modal__corner--tr"></span>
+                <span class="modal__corner modal__corner--bl"></span>
+                <span class="modal__corner modal__corner--br"></span>
+
+                <!-- Header -->
+                <header class="modal__header">
+                    <h2 class="modal__title">
+                        <span aria-hidden="true" class="modal__title-icon">⚙</span>
+                        <span data-i18n="settings.title">Settings</span>
+                    </h2>
+                    <button
+                        class="modal__close"
+                        id="settingsModalClose"
+                        aria-label="Close"
+                    >
+                        ✕
+                    </button>
+                </header>
+
+                <div class="modal__divider"></div>
+
+                <!-- Settings body -->
+                <div class="modal__body settings-body">
+                    <div class="settings-content">
+                        <p class="settings__section-label" data-i18n="settings.language.label">Language</p>
+                        <div class="lang-options">
+                            <button class="lang-option" data-lang="en">
+                                <span class="lang-option__code">EN</span>
+                                <span class="lang-option__name" data-i18n="lang.en">English</span>
+                                <span class="lang-option__check" aria-hidden="true">✓</span>
+                            </button>
+                            <button class="lang-option" data-lang="pt-br">
+                                <span class="lang-option__code">PT</span>
+                                <span class="lang-option__name" data-i18n="lang.pt-br">Português (Brasil)</span>
+                                <span class="lang-option__check" aria-hidden="true">✓</span>
+                            </button>
+                            <button class="lang-option" data-lang="es">
+                                <span class="lang-option__code">ES</span>
+                                <span class="lang-option__name" data-i18n="lang.es">Español</span>
+                                <span class="lang-option__check" aria-hidden="true">✓</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /.modal__window--sm -->
+        </div>
+        <!-- /#settingsModal -->
+
+        <script src="main.js"></script>
+        <script src="i18n.js"></script>
+        <script src="modal.js"></script>
+    </body>
+</html>
